@@ -89,6 +89,7 @@ class DatabaseHelper {
   }
 
   Future<List<Map<String, dynamic>>> getHymnMapList() async {
+    
     Database db = await this.database;
 
     //		var result = await db.rawQuery('SELECT * FROM $noteTable order by $colPriority ASC');
