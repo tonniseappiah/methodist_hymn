@@ -62,7 +62,7 @@ class HymnsDB {
     this._author = newAuthor;
   }
 
-  // Converting the HymnsDB object into map object for database
+  // Converting the LangIndexDB object into map object for database
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
     if (hymnsID != null) {

@@ -89,22 +89,20 @@ class DatabaseHelper {
   }
 
   Future<List<Map<String, dynamic>>> getHymnMapList() async {
-    
     Database db = await this.database;
 
-    //		var result = await db.rawQuery('SELECT * FROM $noteTable order by $colPriority ASC');
     var result = await db.query(hymnsTable,);
     return result;
   }
 
-  // Get the 'Map List' [ List<Map> ] and convert it to 'Note List' [ List<Note> ]
+  // Get the 'Map List' [ List<Map> ] and convert it to 'Hymn List' [ List<Hymns> ]
   Future<List<HymnsDB>> getHymnList() async {
 
     var hymnMapList = await getHymnMapList(); // Get 'Map List' from database
     int count = hymnMapList.length;         // Count the number of map entries in db table
 
     List<HymnsDB> hymnList = List<HymnsDB>();
-    // For loop to create a 'Note List' from a 'Map List'
+    // For loop to create a 'Hymn List' from a 'Map List'
     for (int i = 0; i < count; i++) {
       hymnList.add(HymnsDB.fromMapObject(hymnMapList[i]));
     }
